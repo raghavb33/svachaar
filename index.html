@@ -1,460 +1,414 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVACHAAR - Our Mission & Model</title>
-    <style>
-        /* --- Basic Setup --- */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fdfcf9;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: "Georgia", "Times New Roman", serif;
-            color: #2c542f;
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            margin-bottom: 1.2em;
-            font-size: 1.05em;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            font-family: "Georgia", "Times New Roman", serif;
-            color: #d9534f;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav li {
-            margin-left: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-
-        nav a:hover {
-            color: #d9534f;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1598912300067-04d3d70f9b6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            text-align: center;
-            padding: 120px 20px;
-        }
-
-        .hero h1 {
-            font-size: 4em;
-            color: #fff;
-            margin: 0;
-            font-weight: normal;
-        }
-
-        .hero h2 {
-            font-size: 1.8em;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-weight: 300;
-            margin-top: 10px;
-        }
-
-        /* --- Section Styling --- */
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .section-gray {
-            background-color: #ffffff;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-        }
-        
-        /* --- 2-Column Grid (Problem/Solution) --- */
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-        
-        .grid-2-col h3 {
-            font-size: 1.8em;
-            border-bottom: 3px solid #d9534f;
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-        
-        .problem-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .problem-list li {
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .problem-list li:before {
-            content: '❌'; /* Using an emoji as a bullet point */
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1em;
-        }
-        
-        .solution-list {
-             list-style: none;
-            padding-left: 0;
-        }
-        .solution-list li {
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .solution-list li:before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1em;
-        }
-
-
-        /* --- 3-Column Grid (USP) --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .grid-item {
-            background: #fff;
-            border: 1px solid #eee;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .grid-item h3 {
-            font-size: 1.5em;
-            color: #d9534f;
-            margin-top: 0;
-            border-bottom: none;
-        }
-
-        /* --- 4-Column Grid (Segments) --- */
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .grid-4 .grid-item {
-            background-color: #fdfcf9;
-            text-align: center;
-        }
-        
-        .grid-4 .grid-item h4 {
-            font-size: 1.2em;
-            color: #2c542f;
-        }
-        
-        .grid-4 .grid-item .solution {
-            font-size: 0.9em;
-            font-weight: 600;
-            color: #d9534f;
-            background-color: #fdfcf9;
-            border: 1px dashed #d9534f;
-            padding: 5px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        
-        .gtm-phase {
-            background: #fff;
-            border: 1px solid #eee;
-            padding: 25px;
-            border-radius: 8px;
-        }
-        
-        .gtm-phase h4 {
-            border-bottom: 2px solid #d9534f;
-            padding-bottom: 8px;
-            display: inline-block;
-        }
-
-        /* --- List Styles (Products) --- */
-        .product-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .product-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .product-list li:before {
-            content: '🌶️';
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        
-        .product-list .line-title {
-            font-weight: 700;
-            color: #333;
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-        }
-        
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .grid-2-col {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 3em;
-            }
-            .hero h2 {
-                font-size: 1.3em;
-            }
-            nav ul {
-                display: none; /* Simple hide for demo */
-            }
-        }
-
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SVACHAAR — Your Flavour, Your Way</title>
+  <meta name="description" content="Svachaar: modern pickles & condiments — travel friendly, protein infused, chemical free, small-batch and rooted in Indian heritage." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#F97316; /* saffron-ish */
+      --muted:#94a3b8;
+      --white:#f8fafc;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071025 0%, #08182a 60%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px;}
+    header{display:flex;align-items:center;gap:20px;margin-bottom:26px}
+    .logo{
+      width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,#111827,#04263a);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);
+      font-weight:700;font-size:20px;color:var(--accent)
+    }
+    h1{font-size:30px;margin:0 0 6px}
+    .tag{color:var(--muted);font-size:14px;margin-bottom:18px}
+    .hero{
+      display:flex;gap:30px;align-items:flex-start;
+      background:var(--glass);padding:22px;border-radius:16px;border:1px solid rgba(255,255,255,0.03)
+    }
+    .col{flex:1}
+    .cta{display:inline-block;background:linear-gradient(90deg,var(--accent),#ffb86b);color:#061024;padding:10px 18px;border-radius:10px;font-weight:700;text-decoration:none;margin-top:12px}
+    section{margin-top:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    h2{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin:10px 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    ul{padding-left:18px;margin:8px 0}
+    .pill{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted);margin-right:8px}
+    .muted{color:var(--muted)}
+    .price{color:var(--accent);font-weight:700}
+    footer{margin-top:28px;padding:14px;text-align:center;color:var(--muted);font-size:13px}
+    pre.code{background:#061422;padding:12px;border-radius:8px;overflow:auto;color:#c8f4ff;font-size:13px}
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column}
+      header{flex-direction:column;align-items:flex-start}
+    }
+  </style>
 </head>
 <body>
-
+  <div class="wrap">
     <header>
-        <div class="container">
-            <a href="#" class="logo">SVACHAAR</a>
-            <nav>
-                <ul>
-                    <li><a href="#the-problem">The Gap</a></li>
-                    <li><a href="#usp">Our Solution</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#markets">Markets</a></li>
-                    <li><a href="#gtm">Our Plan</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="logo">SVC<hr style="width:38px;margin:6px auto;border:0;border-top:2px solid rgba(255,255,255,0.03)" /></div>
+      <div>
+        <h1>SVACHAAR — Your flavour, your way</h1>
+        <div class="tag">Modern & rooted pickles and condiments — travel friendly, protein-infused, preservative free.</div>
+        <a class="cta" href="#shop">Shop Travel Packs</a>
+      </div>
     </header>
 
-    <section class="hero">
-        <h1>SVACHAAR</h1>
-        <h2>Your Flavour, Your Way.</h2>
-    </section>
-    
-    <section id="the-problem" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">A ₹18,000 Crore Market, Stuck in the Past</h2>
-            <div class="grid-2-col">
-                <div>
-                    <h3>The Problem We Saw 🧐</h3>
-                    <p>The Indian pickle market is massive, yet **75% of it is unorganized.** It's fragmented, local, and has failed to innovate for the modern consumer. The market is stuck between two bad options:</p>
-                    <ul class="problem-list">
-                        <li><strong>Bulky Glass Jars:</strong> Heavy, inconvenient, breakable, and impossible to travel with. They are designed for a pantry, not a backpack or a suitcase.</li>
-                        <li><strong>Health Concerns:</strong> Mass-market brands are loaded with excess salt, palm oil, and artificial preservatives (like Sodium Benzoate) to extend shelf life.</li>
-                        <li><strong>Inflexibility:</strong> Traditional pickle is just a condiment. It's not seen as a versatile ingredient for today's quick-cooking generation.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>What We Solve, and How 💡</h3>
-                    <p>SVACHAAR was built to solve the core needs of the modern consumer: **Convenience, Health, and Versatility.**</p>
-                    <ul class="solution-list">
-                        <li><strong>How we solve Convenience:</strong> We ditched glass. Our lightweight, leak-proof, multi-layer pouches come in **custom sizes**—from 50g "Travel Packs" for students to 5kg "Chef Packs" for HORECA.</li>
-                        <li><strong>How we solve Health:</strong> We have a "Clean Label" guarantee. **No artificial preservatives. No palm oil.** We use premium healthy oils and even created a "Protein+" line for a healthy, ready-to-eat snack.</li>
-                        <li><strong>How we solve Versatility:</strong> We "adapted" the pickle. Our "Chef Paste" line turns pickle into a 1-minute marinade, a sandwich spread, or a cooking base.</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="col">
+        <h2>The Problem — why pickles haven't moved with modern life</h2>
+        <p class="lead">Traditional pickles are beloved — but they’re not built for the mobile, health-conscious generation. Fragile glass jars, heavy oil, artificial preservatives and no portion control make them inconvenient for students, travellers and modern professionals.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Key pain points</h3>
+            <ul>
+              <li>Breakable glass packaging — not travel-friendly.</li>
+              <li>High oil content, palm oil & preservatives like sodium benzoate.</li>
+              <li>Large jars — no portion control for single users or travellers.</li>
+              <li>Conventional pickles are rarely used as a spread, marinade or cooking base.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Who feels this pain?</h3>
+            <p class="muted">Primary consumers:</p>
+            <ul>
+              <li>Students, hostellers & travellers (18–30)</li>
+              <li>Young working professionals in Tier-1 & Tier-2 cities</li>
+              <li>B2B: HORECA — cloud kitchens, cafes, corporate kitchens</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="usp" class="section">
-        <div class="container">
-            <h2 class="section-title">Our 3 Pillars of Total Convenience</h2>
-            <div class="grid-3">
-                <div class="grid-item">
-                    <h3>1. Packaging Convenience</h3>
-                    <p><strong>Zero Glass, Zero Rigid Plastic.</strong> We use premium, lightweight, and leak-proof flexible pouches. They are travel-safe, reduce shipping costs, and are better for the planet. No more breakage, no more leaks.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>2. Health Convenience</h3>
-                    <p><strong>A "Clean Label" Guarantee.</strong> Enjoy authentic flavour with <strong>no artificial preservatives</strong> and <strong>no palm oil</strong>. We use premium, health-forward oils (like rice bran or olive oil) and natural preservation methods.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>3. Application Convenience</h3>
-                    <p><strong>The Pickle, Adapted.</strong> We've transformed the pickle from just a side-dish into a versatile cooking ingredient. Our "Pickle Paste" line saves critical prep time for home cooks and professional chefs alike.</p>
-                </div>
-            </div>
+      <div class="col">
+        <h2>Our answer — Svachaar</h2>
+        <p class="lead">Svachaar modernises the pickle: <strong>small-batch, chemical-free, protein-infused pickles</strong> in leak-proof biodegradable zipper pouches — designed to travel, to spread, and to be used as a modern cooking ingredient.</p>
+
+        <div class="card">
+          <h3>Core promises</h3>
+          <ul>
+            <li>No glass — travel-safe, light and leak-proof pouches.</li>
+            <li>No sodium benzoate, no artificial preservatives — freshness-first small batches.</li>
+            <li>Protein-infused variants for the health conscious.</li>
+            <li>Multifunctional: eat traditionally, use as a spread, marinade or cooking base.</li>
+            <li>Ingredients sourced from native regions — real taste, farm-fresh.</li>
+          </ul>
         </div>
-    </section>
 
-    <section id="markets" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Custom Sizing for Every Need</h2>
-            <div class="grid-4">
-                <div class="grid-item">
-                    <h4>The Student & Traveler</h4>
-                    <p>For portability, variety, and a taste of home, anywhere.</p>
-                    <span class="solution">50g & 100g "Travel Packs"</span>
-                </div>
-                <div class="grid-item">
-                    <h4>The Modern Home</h4>
-                    <p>For health-conscious families who want clean ingredients and portion control.</p>
-                    <span class="solution">250g "Home Pouches"</span>
-                </div>
-                <div class="grid-item">
-                    <h4>The HORECA Sector (B2B)</h4>
-                    <p>For professional kitchens needing consistency, efficiency, and bulk supply.</p>
-                    <span class="solution">5kg & 10kg "Chef Packs"</span>
-                </div>
-                <div class="grid-item">
-                    <h4>The Corporate Sector</h4>
-                    <p>For unique, premium gifting that stands out from the usual.</p>
-                    <span class="solution">Curated "Gifting Samplers"</span>
-                </div>
-            </div>
+        <div style="margin-top:12px">
+          <span class="pill">Travel Packs: 50g / 250g / 500g</span>
+          <span class="pill">Avg price: ₹80 / 100g</span>
+          <span class="pill">Small-batch • Biodegradable pouches</span>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section id="products" class="section">
-        <div class="container">
-            <h2 class="section-title">Our Product Lines</h2>
-            <div class="grid-2-col">
-                <div>
-                    <ul class="product-list">
-                        <li class="line-title">The Heritage Line (Traditional)</li>
-                        <li>Classic Mango</li>
-                        <li>Stuffed Red Chilli</li>
-                        <li>Mixed Vegetable</li>
-                        <li>Lemon Khatta Meetha</li>
+    <!-- SOLUTIONS -->
+    <section id="solution">
+      <h2>Product Lines & Positioning</h2>
+      <p class="lead">Svachaar's range is designed for different moments and users — all built around the same core benefits: freshness, portability, modern versatility and rooted flavours.</p>
 
-                        <li class="line-title">The Fusion Line (Modern/Health)</li>
-                        <li>Garlic-in-Olive-Oil</li>
-                        <li>Sweet Mango-Chia</li>
-                        <li>Jaggery-based Lemon</li>
-                        <li>Turmeric-Ginger Slices</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="product-list">
-                        <li class="line-title">The Protein+ Line (Gen Z)</li>
-                        <li>Pickled Chickpea & Olive</li>
-                        <li>Spicy Pickled Tofu</li>
-                        <li>Pickled Lotus Stem</li>
-
-                        <li class="line-title">The Chef-Line (HORECA)</li>
-                        <li>Concentrated Tamarind-Date Paste</li>
-                        <li>Red Chilli-Garlic Marinade</li>
-                        <li>Tangy Mango-Mustard Spread</li>
-                        <li>Bulk Heritage Packs (Standard Cut)</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="grid" style="margin-top:12px;">
+        <div class="card">
+          <h3>Heritage Line</h3>
+          <p class="muted">Authentic traditional recipes made with care — Avakaya, Gongura, Punjabi Mango, Lemon Achaar.</p>
+          <ul>
+            <li>For: nostalgia seekers, homemakers who travel, gifting.</li>
+            <li>Formats: 50g (travel), 250g (home), 500g (family)</li>
+          </ul>
         </div>
+
+        <div class="card">
+          <h3>Fusion Line (Gen-Z)</h3>
+          <p class="muted">Bold experimental flavours for younger palates — pickles as spreads and marinades (e.g., mango-chai chutney, chili-garlic hummus style pickle).</p>
+          <ul>
+            <li>For: students, hostellers, travellers who want modern ways to eat traditional flavours.</li>
+            <li>Use: spreads, sandwich boosts, marinades.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Protein+ Line</h3>
+          <p class="muted">First-ever <strong>protein infused pickles</strong> — designed for gymgoers and health-conscious consumers (legume accents, pickled chickpea mash, hemp or millet fortified bases).</p>
+          <ul>
+            <li>For: health-aware professionals who want convenience + nutrition.</li>
+            <li>Claims: No palm oil, no sodium benzoate, measured protein per pack.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Corporate / Chef Packs (HORECA)</h3>
+          <p class="muted">10kg & 5kg Chef packs, low-oil culinary bases and chef grade marinades for restaurants and cloud kitchens.</p>
+          <ul>
+            <li>For: cafes, cloud kitchens, corporate cafeterias.</li>
+            <li>Delivered via direct bulk enquiries — email / phone.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section id="gtm" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Our Go-to-Market Strategy</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
-                We are launching as a digital-first, high-margin brand. We will avoid the saturated General Trade (kirana) channel to protect our premium positioning.
-            </p>
-            <div class="grid-3">
-                <div class="gtm-phase">
-                    <h4>Phase 1: Launch (D2C & B2B)</h4>
-                    <p><strong>D2C:</strong> Launch our e-commerce website, targeting students and health-conscious homes with digital ads.</p>
-                    <p><strong>B2B:</strong> Deploy a direct sales team to build a stable, bulk revenue base from HORECA clients using our "Chef-Line".</p>
-                </div>
-                <div class="gtm-phase">
-                    <h4>Phase 2: Scale (Marketplaces)</h4>
-                    <p><strong>Online:</strong> Expand to key online marketplaces like Amazon, BigBasket, and other specialty food platforms to increase reach.</p>
-                    <p><strong>Corporate:</strong> Launch our "Corporate Gifting" vertical by partnering with B2B gifting houses.</p>
-                </div>
-                <div class="gtm-phase">
-                    <h4>Phase 3: Omnichannel (Selective MT)</h4>
-                    <p><strong>Retail:</strong> After establishing brand equity, we will enter selective Modern Trade (supermarkets) as a premium, differentiated brand in gourmet aisles.</p>
-                </div>
-            </div>
+    <!-- TARGET -->
+    <section id="audience">
+      <h2>Target Customers — Positioning & Behaviour</h2>
+      <p class="lead">We serve two population buckets with specific GTM approaches:</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Direct Consumer (D2C)</h3>
+          <ul>
+            <li>Students, hostellers, travellers & young professionals (18–30), Tier-1 & Tier-2 cities.</li>
+            <li>Buying motive: portability, health, flavour innovation, gifting & convenience.</li>
+            <li>Channels: Own website, Instagram + influencer-driven campaigns, Q-commerce later.</li>
+          </ul>
         </div>
+
+        <div class="card">
+          <h3>Business Customers (B2B)</h3>
+          <ul>
+            <li>HORECA: cafes, cloud kitchens, small restaurant chains and corporate kitchens.</li>
+            <li>Buying motive: consistent fresh flavours, chef-ready marinades, cost-efficient bulk packs.</li>
+            <li>Channels: direct outreach, trade sampling, chef partnerships and culinary demos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANUFACTURING -->
+    <section id="manufacturing">
+      <h2>Manufacturing & Sourcing</h2>
+      <p class="lead">Small-batch, in-house production built around freshness and traceability.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>How we make it</h3>
+          <ul>
+            <li>Own homemade manufacturing unit — small batches, freshly made to order.</li>
+            <li>Hand-crafted recipes following native regional methods (no frozen or processed raw inputs).</li>
+            <li>Taste & QC checks every batch; short shelf-life strategy with focused reorder cadence.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Sourcing & Ingredients</h3>
+          <ul>
+            <li>Raw ingredients sourced from their native regions (mango from Andhra/UP, gongura from Telangana, etc.).</li>
+            <li>No artificial preservatives, no palm oil, no chemicals; prioritise local farmers & traceability.</li>
+            <li>Protein sources: legumes, chickpea flour blends, hemp/millet fortification in Protein+ line.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGING -->
+    <section id="packaging">
+      <h2>Packaging & Sustainability</h2>
+      <p class="lead">Designed for travel and modern life — leak-proof, biodegradable zipper pouches; no glass, no single-use plastic jars.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Features</h3>
+          <ul>
+            <li>50g, 250g, 500g options — resealable zipper, anti-leak seal.</li>
+            <li>Biodegradable laminate pouches (food-grade) — minimal weight for travel.</li>
+            <li>Custom printed branding with QR code for recipes & provenance details.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Why this matters</h3>
+          <ul>
+            <li>Removes glass breakage risk — perfect for students, hostellers, and travellers.</li>
+            <li>Lower freight cost and better margin for D2C delivery.</li>
+            <li>Clear sustainability story for modern consumers.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GTM -->
+    <section id="gtm">
+      <h2>Go-to-Market & Marketing</h2>
+      <p class="lead">Multi-pronged, low-waste early GTM focused on storytelling, sampling and partnerships.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Phase 1 — Launch (0–6 months)</h3>
+          <ul>
+            <li>Own website D2C launch with 6 SKUs (mix of Heritage, Fusion & Protein+).</li>
+            <li>Campus & hostel sampling drives, pop-ups in coworking spaces, office sampling.</li>
+            <li>Influencer & micro-creator partnerships targeting Gen-Z travellers and young professionals.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Phase 2 — Scale (6–18 months)</h3>
+          <ul>
+            <li>List on marketplaces and selective Q-commerce partners to improve trial in Tier-1/2 cities.</li>
+            <li>Direct B2B outreach to cloud kitchens and boutique restaurants (chef packs & demos).</li>
+            <li>PR & storytelling: provenance videos, farmer stories, protein benefit data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <h3>Early marketing tactics</h3>
+        <ul>
+          <li>Sampling with larger FMCG or food brands at festivals/college fests.</li>
+          <li>Recipe & usage content (short reels): spreads, quick marinades, breakfast hacks.</li>
+          <li>Limited edition regional boxes for festival gifting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- REVENUE -->
+    <section id="revenue">
+      <h2>Revenue Model & Unit Economics (high level)</h2>
+      <p class="lead">Simple, margin-focused and multi-channel revenue streams.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Primary revenue streams</h3>
+          <ul>
+            <li>D2C retail via website — single packs, bundles & subscriptions.</li>
+            <li>B2B bulk orders — chef & HORECA packs (custom pricing).</li>
+            <li>Marketplace sales & festival/gifting boxes.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Sample pricing & economics</h3>
+          <p class="muted">Average retail price: <span class="price">₹80 / 100g</span> (example)</p>
+          <ul>
+            <li>50g travel pouch → ₹40 (intro)</li>
+            <li>250g pouch → ₹200</li>
+            <li>500g pouch → ₹400</li>
+            <li>Target gross margin (post COGS & packaging): 45–60% at scale</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="plan">
+      <h2>Our Plan & 12-month Roadmap</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>0–3 months</h3>
+          <ul>
+            <li>Finalize recipes, packaging supplier for biodegradable zipper pouches.</li>
+            <li>Pilot small batch production, run campus & office sampling.</li>
+            <li>Launch website + 4 SKUs (two heritage, one fusion, one protein).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>4–9 months</h3>
+          <ul>
+            <li>Incorporate feedback; expand to 8 SKUs; add Chef packs for B2B pilots.</li>
+            <li>Start marketplace listings and quick-commerce pilots in 3 cities.</li>
+            <li>Run targeted influencer campaigns & pop-ups in 6 college hubs.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>10–12 months</h3>
+          <ul>
+            <li>Scale production; B2B contracts with 10+ cloud kitchens/cafes.</li>
+            <li>Launch regional gift boxes for festivals and NRIs pilot for export.</li>
+            <li>Achieve repeat purchase rate target and test subscription product.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITORS -->
+    <section id="competitors">
+      <h2>Competition & Where We Stand Out</h2>
+      <p class="lead">The category has heritage leaders and modern D2C entrants — we deliberately occupy a hybrid space.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Traditional brands (e.g., Priya, Mother's Recipe, Pachranga)</h3>
+          <ul>
+            <li>Strengths: deep distribution, pantry penetration, price leadership.</li>
+            <li>Weaknesses: glass & bulky packaging, high oil/preservative use, weak lifestyle positioning.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Modern D2C (e.g., FarmDidi, JhaJi, smaller artisan brands)</h3>
+          <ul>
+            <li>Strengths: clean-label claims, storytelling, modern packaging, D2C traction.</li>
+            <li>Weaknesses: many still use glass jars or are region-limited; few offer travel-friendly leakproof pouches; limited protein-focused options; not all offer chef-ready bulk formats.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <h3>Svachaar's competitive edge (our USP)</h3>
+        <ul>
+          <li><strong>Portability-first design:</strong> the first modern pickle brand with travel-first biodegradable zipper pouches at scale.</li>
+          <li><strong>Protein+ innovation:</strong> unique protein-infused lines for fitness-conscious consumers.</li>
+          <li><strong>Fresh small-batch craft:</strong> in-house production prioritising freshness over long shelf-life preservatives.</li>
+          <li><strong>Versatility:</strong> pickles positioned as spreads, marinades & cooking bases — creating new use cases and higher AOV.</li>
+          <li><strong>Full stack D2C + B2B:</strong> website-first consumer play, with direct HORECA play for stable high-volume contracts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>FAQ — quick answers</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Are these pickles preservative-free?</h3>
+          <p class="muted">Yes — no sodium benzoate or artificial preservatives. We rely on small-batch freshness and measured refrigeration / packaging to ensure safety.</p>
+        </div>
+
+        <div class="card">
+          <h3>How long do travel packs stay fresh?</h3>
+          <p class="muted">Travel packs (50g) are shelf-stable for a shorter window than commercial jars; recommended to consume within 30–60 days after opening for best flavour. We provide clear expiry & storage guidance on each pack.</p>
+        </div>
+
+        <div class="card">
+          <h3>Are pouches really biodegradable?</h3>
+          <p class="muted">We use certified biodegradable laminate pouches designed for food use — we will publish supplier certificates and disposal instructions on packaging.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section id="contact" style="text-align:center">
+      <h2>Ready to taste the future of pickles?</h2>
+      <p class="lead">Pre-order travel packs, request a chef sample or enquire about bulk orders.</p>
+      <a class="cta" href="#shop">Pre-order Now</a>
+      <div style="margin-top:12px;color:var(--muted)">
+        Bulk & chef enquiries: <strong>sales@svachaar.in</strong> • Call: <strong>+91-XXXXXXXXXX</strong>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 SVACHAAR Foods Pvt. Ltd. | Your Flavour, Your Way.</p>
-            <p>FSSAI Lic. No. XXXXXXXXXXXXXX</p>
-        </div>
+      © SVACHAAR — Your flavour, your way. Crafted fresh. Made to travel. Made for taste.
     </footer>
 
+  </div>
 </body>
 </html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVACHAAR — Your Flavour, Your Way</title>
+    <meta name="description" content="Svachaar: modern pickles & condiments — travel friendly, protein infused, chemical free, small-batch and rooted in Indian heritage.">
+    
+    <link rel.preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+        --- SVACHAAR Professional Redesign ---
+        Palette:
+        - Warm White (BG): #FFFBF5
+        - Earthy Text: #3D2C22
+        - Saffron Accent (Primary): #F97316
+        - Leafy Green (Secondary): #2C542F
+        - Muted/Border: #E0D9D0
+        
+        Typography:
+        - Headings: 'Playfair Display', serif
+        - Body: 'Poppins', sans-serif
+        */
+
+        :root {
+            --bg-main: #FFFBF5;
+            --text-dark: #3D2C22;
+            --text-light: #5a4a40;
+            --accent-primary: #F97316;
+            --accent-secondary: #2C542F;
+            --border-color: #E0D9D0;
+            --card-bg: #FFFFFF;
+            --max-width: 1200px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 4px 12px rgba(61, 44, 34, 0.04);
+            --shadow-md: 0 8px 20px rgba(61, 44, 34, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.75rem; text-align: center; margin-bottom: 20px; }
+        h3 { font-size: 1.75rem; margin-bottom: 15px; color: var(--accent-secondary); }
+        h4 { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-dark); }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        p.lead {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: rgba(255, 251, 245, 0.85); /* Translucent BG */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+        .nav-cta {
+            display: none; /* Hide main CTA from nav, show in hero */
+        }
+
+        /* --- CTA Button --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-primary);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 2px solid var(--accent-primary);
+        }
+        .cta-button:hover {
+            background-color: #e06814;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--accent-primary);
+        }
+        .cta-button.secondary:hover {
+            background-color: var(--accent-primary);
+            color: #fff;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            padding: 80px 0;
+        }
+        .hero-content {
+            animation: fadeIn 1s ease-out;
+        }
+        .hero-content .sub-tag {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .hero-content h1 {
+            margin-bottom: 20px;
+        }
+        .hero-content .tagline {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        .hero-image {
+            background-image: url('https://images.unsplash.com/photo-1608500218864-d610a56318c9?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            animation: slideIn 1s ease-out;
+        }
+
+        /* --- Section Wrapper --- */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section-alt {
+            background-color: var(--card-bg);
+        }
+
+        /* --- Grid & Card System --- */
+        .grid-1, .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 30px;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .card-full {
+            grid-column: 1 / -1;
+        }
+        .card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-primary);
+        }
+        .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-md);
+            background-color: #eee;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card ul { list-style-type: '✓ '; }
+        .card ul li { padding-left: 10px; }
+        .card.problem ul { list-style-type: '✗ '; }
+        .card.problem ul li { color: #b94a4a; }
+        .card.edge ul li { color: var(--accent-secondary); }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .pill {
+            display: inline-block;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 60px 0;
+            background-color: #2a1e17;
+            color: #c7b7ae;
+        }
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .footer p, .footer a {
+            color: #c7b7ae;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .footer a:hover {
+            color: var(--accent-primary);
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .footer-logo span { color: var(--accent-primary); }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #4a3a30;
+            font-size: 0.85rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-image { height: 350px; }
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* Simplified for demo. A real site would use a burger menu. */
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .hero { padding: 40px 0; }
+            .hero-content { text-align: center; }
+            p.lead { font-size: 1.05rem; }
+        }
+        
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">SVA<span>CHAAR</span></a>
+            <nav class="nav-links">
+                <a href="#problem">The Problem</a>
+                <a href="#solution">Our Solution</a>
+                <a href="#products">Products</a>
+                <a href="#audience">Audience</a>
+                <a href="#gtm">Our Plan</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#products" class="cta-button nav-cta">Shop Now</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-wrapper">
+            <div class="container hero">
+                <div class="hero-content">
+                    <div class="sub-tag">MODERN INDIAN FLAVOURS</div>
+                    <h1>Your Flavour, Your Way.</h1>
+                    <p class="tagline">
+                        Small-batch, chemical-free, protein-infused pickles in travel-ready pouches.
+                        We're modernizing Indian heritage for your busy life.
+                    </p>
+                    <a href="#products" class="cta-button">Shop Travel Packs</a>
+                    <a href="#horeca" class="cta-button secondary" style="margin-left: 15px;">For HORECA</a>
+                </div>
+                <div class="hero-image">
+                    </div>
+            </div>
+        </section>
+
+        <section id="problem" class="section section-alt">
+            <div class="container">
+                <h2>The Pickle Problem</h2>
+                <p class="lead">Traditional pickles are beloved, but they're not built for a modern, mobile, health-conscious life. The ₹18,000 Crore market is stuck in the past.</p>
+                
+                <div class="grid-2">
+                    <div class="card problem">
+                        <h3>Key Pain Points</h3>
+                        <ul>
+                            <li><strong>Breakable & Bulky:</strong> Fragile glass jars are heavy, leak-prone, and impossible to travel with.</li>
+                            <li><strong>Unhealthy:</strong> Most are loaded with palm oil, excess salt, and artificial preservatives like sodium benzoate.</li>
+                            <li><strong>No Portion Control:</strong> Large 1kg jars mean no convenience for students, hostellers, or single professionals.</li>
+                            <li><strong>Inflexible:</strong> Seen only as a condiment, not a versatile spread, marinade, or cooking base.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Our Solution: SVACHAAR</h3>
+                        <ul>
+                            <li><strong>No Glass, No Leaks:</strong> We use lightweight, travel-safe, leak-proof pouches.</li>
+                            <li><strong>Clean & Healthy:</strong> 100% free of artificial preservatives and palm oil. Small-batch freshness.</li>
+                            <li><strong>Protein-Infused:</strong> Introducing India's first protein-infused pickles for a healthy, guilt-free indulgence.</li>
+                            <li><strong>Multi-Functional:</strong> Designed to be a spread, a marinade, or a cooking base.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pill-container" style="margin-top: 40px; justify-content: center;">
+                    <span class="pill">Travel Packs: 50g / 250g / 500g</span>
+                    <span class="pill">Avg. Price: ₹80 / 100g</span>
+                    <span class="pill">Small-Batch & Fresh</span>
+                    <span class="pill">Biodegradable Pouches</span>
+                    <span class="pill">No Sodium Benzoate</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2>Our Product Lines</h2>
+                <p class="lead">Designed for every moment—from nostalgic meals and healthy snacks to professional kitchens.</p>
+
+                <div class="grid-4">
+                    <div class="card">
+                        <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1599501060930-5f2d556b6f0a?auto=format&fit=crop&w=600&q=80');"></div>
+                        <h4>Heritage Line</h4>
+                        <p class="muted">Authentic traditional recipes made with care. For nostalgia seekers, travelers, and gifting.</p>
+                        <ul>
+                            <li>Avakaya Mango</li>
+                            <li>Punjabi Mango</li>
+                            <li>Gongura</li>
+                            <li>Lemon Achaar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1625944230944-190b6de09d6d?auto=format&fit=crop&w=600&q=80');"></div>
+                        <h4>Fusion (Gen-Z) Line</h4>
+                        <p class="muted">Bold, experimental flavours for younger palates. Use as spreads, dips, and boosts.</p>
+                        <ul>
+                            <li>Mango-Chai Chutney</li>
+                            <li>Chili-Garlic Hummus Pickle</li>
+                            <li>Spicy Sandwich Spread</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1547496616-0eb5d5b4f653?auto=format&fit=crop&w=600&q=80');"></div>
+                        <h4>Protein+ Line</h4>
+                        <p class="muted">First-ever protein-infused pickles for gym-goers and the health-conscious.</p>
+                        <ul>
+                            <li>Pickled Chickpea Mash</li>
+                            <li>Legume-Fortified Bases</li>
+                            <li>Hemp & Millet Infused</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card" id="horeca">
+                        <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1556909172-565f462e7616?auto=format&fit=crop&w=600&q=80');"></div>
+                        <h4>Chef Packs (HORECA)</h4>
+                        <p class="muted">Consistent, low-oil culinary bases and marinades for cafes, cloud kitchens, and restaurants.</p>
+                        <ul>
+                            <li>5kg & 10kg Chef Packs</li>
+                            <li>Chef-Grade Marinades</li>
+                            <li>Direct Bulk Enquiries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="audience" class="section section-alt">
+            <div class="container">
+                <h2>Our Customers</h2>
+                <p class="lead">We're built for the new Indian consumer and the businesses that serve them.</p>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Direct-to-Consumer (D2C)</h3>
+                        <p>Students, hostellers, travelers, and young professionals in Tier-1 & 2 cities.</p>
+                        <ul>
+                            <li><strong>Buying Motive:</strong> Portability, health, flavour innovation, and convenience.</li>
+                            <li><strong>Channels:</strong> Our website, Instagram, influencer campaigns, and later, Q-commerce.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Business-to-Business (B2B)</h3>
+                        <p>HORECA (cafes, cloud kitchens, small restaurant chains) and corporate kitchens.</p>
+                        <ul>
+                            <li><strong>Buying Motive:</strong> Consistent fresh flavours, chef-ready marinades, and cost-efficient bulk packs.</li>
+                            <li><strong>Channels:</strong> Direct outreach, trade sampling, and chef partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="process" class="section">
+            <div class="container">
+                <h2>Freshness-First: Process & Packaging</h2>
+                <p class="lead">Our design is not just a look; it's a promise of quality, portability, and sustainability.</p>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Manufacturing & Sourcing</h3>
+                        <ul>
+                            <li><strong>Small-Batch Production:</strong> We use our own homemade manufacturing unit, making fresh batches to order.</li>
+                            <li><strong>Traceable Sourcing:</strong> Ingredients are sourced from their native regions (e.g., Mango from UP/Andhra, Gongura from Telangana).</li>
+                            <li><strong>No Nasty Stuff:</strong> No artificial preservatives, no palm oil, no chemicals. We prioritize local farmers.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Packaging & Sustainability</h3>
+                        <ul>
+                            <li><strong>Travel-Safe Pouches:</strong> Our core feature. Biodegradable, food-grade laminate pouches with anti-leak seals.</li>
+                            <li><strong>No More Glass:</strong> Eliminates breakage risk, lowers freight cost, and reduces our carbon footprint.</li>
+                            <li><strong>Portion Control:</strong> 50g, 250g, and 500g resealable zipper packs to maintain freshness.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gtm" class="section section-alt">
+            <div class="container">
+                <h2>Our Go-to-Market Plan</h2>
+                <p class="lead">A multi-pronged, low-waste GTM focused on storytelling, sampling, and strategic partnerships.</p>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h4>Phase 1: Launch (0-6 Mos)</h4>
+                        <ul>
+                            <li>Launch D2C website with 6 core SKUs.</li>
+                            <li>Campus & hostel sampling drives.</li>
+                            <li>Pop-ups in coworking spaces.</li>
+                            <li>Micro-influencer partnerships (travel & food).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Phase 2: Scale (6-18 Mos)</h4>
+                        <ul>
+                            <li>List on marketplaces (Amazon, etc.).</li>
+                            <li>Pilot Q-commerce in 3 cities.</li>
+                            <li>Direct B2B outreach to cloud kitchens.</li>
+                            <li>PR & storytelling (provenance videos).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Phase 3: Grow (12-24 Mos)</h4>
+                        <ul>
+                            <li>Scale B2B contracts to 10+ chains.</li>
+                            <li>Launch regional gift boxes for festivals.</li>
+                            <li>Pilot NRI/export batches.</li>
+                            <li>Test subscription-box models.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="section">
+            <div class="container">
+                <h2>Where We Stand Out</h2>
+                <p class="lead">The market has giants and artisans. We sit in a unique, hybrid space they can't occupy.</p>
+                <div class="grid-2">
+                    <div class="card problem">
+                        <h4>Traditional Brands (Priya, Mother's Recipe)</h4>
+                        <ul>
+                            <li><strong>Strengths:</strong> Deep distribution, low price.</li>
+                            <li><strong>Weaknesses:</strong> Bulky glass, high oil/preservative use, weak lifestyle positioning.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Modern D2C Brands (JhaJi, FarmDidi)</h4>
+                        <ul>
+                            <li><strong>Strengths:</strong> Clean-label, great storytelling.</li>
+                            <li><strong>Weaknesses:</strong> Still use glass jars, limited travel-friendly options, no protein-focus, weak B2B.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-full edge" style="margin-top: 30px; background-color: #f7fff9;">
+                    <h3 style="color: var(--accent-secondary);">The SVACHAAR Competitive Edge</h3>
+                    <ul>
+                        <li><strong>Portability-First Design:</strong> The *only* brand with travel-first biodegradable zipper pouches at scale.</li>
+                        <li><strong>Protein+ Innovation:</strong> A new, defensible category for fitness-conscious consumers.</li>
+                        <li><strong>Fresh Small-Batch Craft:</strong> In-house production prioritizing freshness over long shelf-life chemicals.</li>
+                        <li><strong>Full-Stack D2C + B2B:</strong> A high-margin D2C engine paired with a stable, high-volume B2B channel for HORECA.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-alt" style="border-bottom: none;">
+            <div class="container" style="text-align: center;">
+                <h2>Taste the Future of Pickles</h2>
+                <p class="lead" style="margin-bottom: 30px;">Pre-order our Travel Packs, request a HORECA sample, or just say hello. <br>We're ready to show you what's next.</p>
+                <a href="#products" class="cta-button">Pre-Order Travel Packs Now</a>
+                <div style="margin-top: 30px; color: var(--text-light);">
+                    <p style="margin-bottom: 5px;"><strong>Bulk & Chef Enquiries:</strong> sales@svachaar.in</p>
+                    <p style="margin-bottom: 5px;"><strong>Call Us:</strong> +91-7408008448</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-col" style="grid-row: 1 / 3;">
+                <a href="#" class="footer-logo">SVA<span>CHAAR</span></a>
+                <p>Your Flavour, Your Way. <br> Crafted fresh. Made to travel. Made for taste.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <a href="#problem">The Problem</a>
+                <a href="#solution">Our Solution</a>
+                <a href="#products">Products</a>
+                <a href="#audience">Audience</a>
+            </div>
+            <div class="footer-col">
+                <h4>Business</h4>
+                <a href="#horeca">HORECA</a>
+                <a href="#gtm">Our Plan</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter (X)</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                © 2025 SVACHAAR Foods Pvt. Ltd. | All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVACHAAR - Website Preview</title>
+    <style>
+        /* --- Basic Setup --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfcf9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Georgia", "Times New Roman", serif;
+            color: #2c542f;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: #d9534f;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        nav a:hover {
+            color: #d9534f;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1598912300067-04d3d70f9b6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            color: #fff;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .hero h2 {
+            font-size: 1.8em;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-gray {
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        /* --- 3-Column Grid (USP) --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .grid-item h3 {
+            font-size: 1.5em;
+            color: #d9534f;
+            margin-top: 0;
+        }
+
+        /* --- 4-Column Grid (Segments) --- */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-4 .grid-item {
+            background-color: #fdfcf9;
+            text-align: center;
+        }
+        
+        .grid-4 .grid-item h4 {
+            font-size: 1.2em;
+            color: #2c542f;
+        }
+        
+        .grid-4 .grid-item .solution {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #d9534f;
+            background-color: #fdfcf9;
+            border: 1px dashed #d9534f;
+            padding: 5px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* --- 2-Column Grid (GTM) --- */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .gtm-phase {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .gtm-phase h4 {
+            border-bottom: 2px solid #d9534f;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* --- List Styles (Products) --- */
+        .product-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .product-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .product-list li:before {
+            content: '🌶️';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .product-list .line-title {
+            font-weight: 700;
+            color: #333;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">SVACHAAR</a>
+            <nav>
+                <ul>
+                    <li><a href="#usp">Our Promise</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#markets">Solutions</a></li>
+                    <li><a href="#gtm">Our Plan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>SVACHAAR</h1>
+        <h2>Your Flavour, Your Way.</h2>
+    </section>
+
+    <section id="usp" class="section">
+        <div class="container">
+            <h2 class="section-title">Not Just a Pickle, A Flavour Solution</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                Our core promise is <strong>"Total Convenience."</strong> We've re-imagined the pickle to fit your modern life,
+                focusing on what matters: portability, health, and versatility.
+            </p>
+            <div class="grid-3">
+                <div class="grid-item">
+                    <h3>1. Packaging Convenience</h3>
+                    <p><strong>Zero Glass, Zero Rigid Plastic.</strong> We use premium, lightweight, and leak-proof flexible pouches. They are travel-safe, reduce shipping costs, and are better for the planet. No more breakage, no more leaks.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>2. Health Convenience</h3>
+                    <p><strong>A "Clean Label" Guarantee.</strong> Enjoy authentic flavour with <strong>no artificial preservatives</strong> and <strong>no palm oil</strong>. We use premium, health-forward oils (like rice bran or olive oil) and natural preservation methods.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>3. Application Convenience</h3>
+                    <p><strong>The Pickle, Adapted.</strong> We've transformed the pickle from just a side-dish into a versatile cooking ingredient. Our "Pickle Paste" line saves critical prep time for home cooks and professional chefs alike.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="markets" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Custom Sizing for Every Need</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                We reject the "one-size-fits-all" jar. Our sizing *is* the solution,
+                perfectly tailored for each of our core customers.
+            </p>
+            <div class="grid-4">
+                <div class="grid-item">
+                    <h4>The Student & Traveler</h4>
+                    <p>For portability, variety, and a taste of home, anywhere.</p>
+                    <span class="solution">50g & 100g "Travel Packs"</span>
+                </div>
+                <div class="grid-item">
+                    <h4>The Modern Home</h4>
+                    <p>For health-conscious families who want clean ingredients and portion control.</p>
+                    <span class="solution">250g "Home Pouches"</span>
+                </div>
+                <div class="grid-item">
+                    <h4>The HORECA Sector (B2B)</h4>
+                    <p>For professional kitchens needing consistency, efficiency, and bulk supply.</p>
+                    <span class="solution">5kg & 10kg "Chef Packs"</span>
+                </div>
+                <div class="grid-item">
+                    <h4>The Corporate Sector</h4>
+                    <p>For unique, premium gifting that stands out from the usual.</p>
+                    <span class="solution">Curated "Gifting Samplers"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Product Lines</h2>
+            <div class="grid-2-col">
+                <div>
+                    <ul class="product-list">
+                        <li class="line-title">The Heritage Line (Traditional)</li>
+                        <li>Classic Mango</li>
+                        <li>Stuffed Red Chilli</li>
+                        <li>Mixed Vegetable</li>
+                        <li>Lemon Khatta Meetha</li>
+
+                        <li class="line-title">The Fusion Line (Modern/Health)</li>
+                        <li>Garlic-in-Olive-Oil</li>
+                        <li>Sweet Mango-Chia</li>
+                        <li>Jaggery-based Lemon</li>
+                        <li>Turmeric-Ginger Slices</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="product-list">
+                        <li class="line-title">The Protein+ Line (Gen Z)</li>
+                        <li>Pickled Chickpea & Olive</li>
+                        <li>Spicy Pickled Tofu</li>
+                        <li>Pickled Lotus Stem</li>
+
+                        <li class="line-title">The Chef-Line (HORECA)</li>
+                        <li>Concentrated Tamarind-Date Paste</li>
+                        <li>Red Chilli-Garlic Marinade</li>
+                        <li>Tangy Mango-Mustard Spread</li>
+                        <li>Bulk Heritage Packs (Standard Cut)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gtm" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Our Go-to-Market Strategy</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                We are launching as a digital-first, high-margin brand. We will avoid the saturated General Trade (kirana) channel to protect our premium positioning.
+            </p>
+            <div class="grid-3">
+                <div class="gtm-phase">
+                    <h4>Phase 1: Launch (D2C & B2B)</h4>
+                    <p><strong>D2C:</strong> Launch our own e-commerce website, targeting students and health-conscious homes with digital ads.</p>
+                    <p><strong>B2B:</strong> Deploy a direct sales team to build a stable, bulk revenue base from HORECA clients (hotels, restaurants, caterers) using our "Chef-Line".</p>
+                </div>
+                <div class="gtm-phase">
+                    <h4>Phase 2: Scale (Marketplaces)</h4>
+                    <p><strong>Online:</strong> Expand to key online marketplaces like Amazon, BigBasket, and other specialty food platforms to increase reach.</p>
+                    <p><strong>Corporate:</strong> Launch our "Corporate Gifting" vertical by partnering with B2B gifting houses.</p>
+                </div>
+                <div class="gtm-phase">
+                    <h4>Phase 3: Omnichannel (Selective MT)</h4>
+                    <p><strong>Retail:</strong> After establishing brand equity, we will enter selective Modern Trade (supermarkets) as a premium, differentiated brand in gourmet aisles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SVACHAAR Foods Pvt. Ltd. | Your Flavour, Your Way.</p>
+            <p>FSSAI Lic. No. XXXXXXXXXXXXXX</p>
+        </div>
+    </footer>
+
+</body>
+</html>

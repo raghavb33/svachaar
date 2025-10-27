@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVACHAAR - Website Preview</title>
+    <title>SVACHAAR - Our Mission & Model</title>
     <style>
         /* --- Basic Setup --- */
         body {
@@ -30,6 +30,7 @@
 
         p {
             margin-bottom: 1.2em;
+            font-size: 1.05em;
         }
 
         /* --- Header & Navigation --- */
@@ -118,6 +119,58 @@
             font-size: 2.5em;
             margin-bottom: 50px;
         }
+        
+        /* --- 2-Column Grid (Problem/Solution) --- */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .grid-2-col h3 {
+            font-size: 1.8em;
+            border-bottom: 3px solid #d9534f;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .problem-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .problem-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .problem-list li:before {
+            content: '❌'; /* Using an emoji as a bullet point */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1em;
+        }
+        
+        .solution-list {
+             list-style: none;
+            padding-left: 0;
+        }
+        .solution-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .solution-list li:before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1em;
+        }
+
 
         /* --- 3-Column Grid (USP) --- */
         .grid-3 {
@@ -138,6 +191,7 @@
             font-size: 1.5em;
             color: #d9534f;
             margin-top: 0;
+            border-bottom: none;
         }
 
         /* --- 4-Column Grid (Segments) --- */
@@ -166,20 +220,6 @@
             padding: 5px;
             border-radius: 4px;
             display: inline-block;
-        }
-
-        /* --- 2-Column Grid (GTM) --- */
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2-col {
-                grid-template-columns: 1fr;
-            }
         }
         
         .gtm-phase {
@@ -232,6 +272,22 @@
             margin: 0;
             font-size: 0.9em;
         }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero h2 {
+                font-size: 1.3em;
+            }
+            nav ul {
+                display: none; /* Simple hide for demo */
+            }
+        }
 
     </style>
 </head>
@@ -242,9 +298,10 @@
             <a href="#" class="logo">SVACHAAR</a>
             <nav>
                 <ul>
-                    <li><a href="#usp">Our Promise</a></li>
+                    <li><a href="#the-problem">The Gap</a></li>
+                    <li><a href="#usp">Our Solution</a></li>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#markets">Solutions</a></li>
+                    <li><a href="#markets">Markets</a></li>
                     <li><a href="#gtm">Our Plan</a></li>
                 </ul>
             </nav>
@@ -255,14 +312,36 @@
         <h1>SVACHAAR</h1>
         <h2>Your Flavour, Your Way.</h2>
     </section>
+    
+    <section id="the-problem" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">A ₹18,000 Crore Market, Stuck in the Past</h2>
+            <div class="grid-2-col">
+                <div>
+                    <h3>The Problem We Saw 🧐</h3>
+                    <p>The Indian pickle market is massive, yet **75% of it is unorganized.** It's fragmented, local, and has failed to innovate for the modern consumer. The market is stuck between two bad options:</p>
+                    <ul class="problem-list">
+                        <li><strong>Bulky Glass Jars:</strong> Heavy, inconvenient, breakable, and impossible to travel with. They are designed for a pantry, not a backpack or a suitcase.</li>
+                        <li><strong>Health Concerns:</strong> Mass-market brands are loaded with excess salt, palm oil, and artificial preservatives (like Sodium Benzoate) to extend shelf life.</li>
+                        <li><strong>Inflexibility:</strong> Traditional pickle is just a condiment. It's not seen as a versatile ingredient for today's quick-cooking generation.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>What We Solve, and How 💡</h3>
+                    <p>SVACHAAR was built to solve the core needs of the modern consumer: **Convenience, Health, and Versatility.**</p>
+                    <ul class="solution-list">
+                        <li><strong>How we solve Convenience:</strong> We ditched glass. Our lightweight, leak-proof, multi-layer pouches come in **custom sizes**—from 50g "Travel Packs" for students to 5kg "Chef Packs" for HORECA.</li>
+                        <li><strong>How we solve Health:</strong> We have a "Clean Label" guarantee. **No artificial preservatives. No palm oil.** We use premium healthy oils and even created a "Protein+" line for a healthy, ready-to-eat snack.</li>
+                        <li><strong>How we solve Versatility:</strong> We "adapted" the pickle. Our "Chef Paste" line turns pickle into a 1-minute marinade, a sandwich spread, or a cooking base.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="usp" class="section">
         <div class="container">
-            <h2 class="section-title">Not Just a Pickle, A Flavour Solution</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
-                Our core promise is <strong>"Total Convenience."</strong> We've re-imagined the pickle to fit your modern life,
-                focusing on what matters: portability, health, and versatility.
-            </p>
+            <h2 class="section-title">Our 3 Pillars of Total Convenience</h2>
             <div class="grid-3">
                 <div class="grid-item">
                     <h3>1. Packaging Convenience</h3>
@@ -283,10 +362,6 @@
     <section id="markets" class="section section-gray">
         <div class="container">
             <h2 class="section-title">Custom Sizing for Every Need</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
-                We reject the "one-size-fits-all" jar. Our sizing *is* the solution,
-                perfectly tailored for each of our core customers.
-            </p>
             <div class="grid-4">
                 <div class="grid-item">
                     <h4>The Student & Traveler</h4>
@@ -358,8 +433,8 @@
             <div class="grid-3">
                 <div class="gtm-phase">
                     <h4>Phase 1: Launch (D2C & B2B)</h4>
-                    <p><strong>D2C:</strong> Launch our own e-commerce website, targeting students and health-conscious homes with digital ads.</p>
-                    <p><strong>B2B:</strong> Deploy a direct sales team to build a stable, bulk revenue base from HORECA clients (hotels, restaurants, caterers) using our "Chef-Line".</p>
+                    <p><strong>D2C:</strong> Launch our e-commerce website, targeting students and health-conscious homes with digital ads.</p>
+                    <p><strong>B2B:</strong> Deploy a direct sales team to build a stable, bulk revenue base from HORECA clients using our "Chef-Line".</p>
                 </div>
                 <div class="gtm-phase">
                     <h4>Phase 2: Scale (Marketplaces)</h4>
